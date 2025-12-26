@@ -3,564 +3,413 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Instituto Privado San Marino - Barquito de Papel. Educación de calidad en San Luis desde 1990. Niveles Inicial, Primario y Secundario.">
     <title>Instituto Privado San Marino - Barquito de Papel</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-        }
-
-        /* Header y Navegación */
-        header {
-            background: #fff;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .top-bar {
-            background: #2c5aa0;
-            color: white;
-            padding: 10px 0;
-            font-size: 14px;
-        }
-
-        .top-bar .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-            display: flex;
-            justify-content: flex-end;
-            gap: 20px;
-        }
-
-        .top-bar a {
-            color: white;
-            text-decoration: none;
-        }
-
-        nav {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 15px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-            color: #2c5aa0;
-        }
-
-        .logo span {
-            color: #f39c12;
-        }
-
-        .nav-menu {
-            display: flex;
-            list-style: none;
-            gap: 30px;
-        }
-
-        .nav-menu a {
-            text-decoration: none;
-            color: #333;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        .nav-menu a:hover {
-            color: #2c5aa0;
-        }
-
-        .dropdown {
-            position: relative;
-        }
-
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background: white;
-            min-width: 200px;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-            border-radius: 5px;
-            top: 100%;
-            margin-top: 10px;
-        }
-
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-
-        .dropdown-content a {
-            display: block;
-            padding: 12px 20px;
-            color: #333;
-        }
-
-        .dropdown-content a:hover {
-            background: #f5f5f5;
-        }
-
-        /* Hero Slider */
-        .hero-slider {
-            height: 600px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .slide {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            opacity: 0;
-            transition: opacity 1s;
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .slide.active {
-            opacity: 1;
-        }
-
-        .slide1 {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        }
-
-        .slide2 {
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-        }
-
-        .slide3 {
-            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-        }
-
-        .slide-content {
-            text-align: center;
-            color: white;
-            max-width: 800px;
-            padding: 20px;
-        }
-
-        .slide-content h1 {
-            font-size: 48px;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-
-        .slide-content p {
-            font-size: 20px;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
-        }
-
-        /* Niveles Educativos */
-        .niveles {
-            padding: 80px 20px;
-            background: #f9f9f9;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 36px;
-            color: #2c5aa0;
-            margin-bottom: 50px;
-        }
-
-        .niveles-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .nivel-card {
-            background: white;
-            border-radius: 15px;
-            padding: 40px;
-            text-align: center;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
-            cursor: pointer;
-        }
-
-        .nivel-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-        }
-
-        .nivel-icon {
-            width: 80px;
-            height: 80px;
-            background: #2c5aa0;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
-            font-size: 36px;
-        }
-
-        .nivel-card h3 {
-            font-size: 24px;
-            color: #2c5aa0;
-            margin-bottom: 15px;
-        }
-
-        .nivel-card p {
-            color: #666;
-            font-size: 16px;
-        }
-
-        /* Pilares */
-        .pilares {
-            padding: 80px 20px;
-            background: white;
-        }
-
-        .pilares-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-        }
-
-        .pilar-card {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 40px 30px;
-            border-radius: 15px;
-            text-align: center;
-            transition: transform 0.3s;
-            cursor: pointer;
-        }
-
-        .pilar-card:nth-child(2) {
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-        }
-
-        .pilar-card:nth-child(3) {
-            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-        }
-
-        .pilar-card:nth-child(4) {
-            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
-        }
-
-        .pilar-card:hover {
-            transform: translateY(-10px);
-        }
-
-        .pilar-icon {
-            font-size: 48px;
-            margin-bottom: 20px;
-        }
-
-        .pilar-card h3 {
-            font-size: 24px;
-            margin-bottom: 15px;
-        }
-
-        .pilar-card p {
-            font-size: 14px;
-            line-height: 1.6;
-        }
-
-        /* Novedades */
-        .novedades {
-            padding: 80px 20px;
-            background: #f9f9f9;
-        }
-
-        .novedades-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .noticia-card {
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-        }
-
-        .noticia-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .noticia-img {
-            width: 100%;
-            height: 200px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 48px;
-        }
-
-        .noticia-content {
-            padding: 25px;
-        }
-
-        .noticia-content h3 {
-            color: #2c5aa0;
-            margin-bottom: 10px;
-            font-size: 20px;
-        }
-
-        .noticia-content p {
-            color: #666;
-            font-size: 14px;
-            margin-bottom: 15px;
-        }
-
-        .btn-leer {
-            display: inline-block;
-            padding: 10px 20px;
-            background: #2c5aa0;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background 0.3s;
-        }
-
-        .btn-leer:hover {
-            background: #1e3a6e;
-        }
-
-        /* Footer */
-        footer {
-            background: #1e3a6e;
-            color: white;
-            padding: 40px 20px 20px;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 30px;
-        }
-
-        .footer-section h3 {
-            margin-bottom: 20px;
-            color: #f39c12;
-        }
-
-        .footer-section p, .footer-section a {
-            color: #ccc;
-            text-decoration: none;
-            display: block;
-            margin-bottom: 10px;
-        }
-
-        .footer-section a:hover {
-            color: white;
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            color: #ccc;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 15px;
-            margin-top: 15px;
-        }
-
-        .social-links a {
-            width: 40px;
-            height: 40px;
-            background: rgba(255,255,255,0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: background 0.3s;
-        }
-
-        .social-links a:hover {
-            background: #2c5aa0;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .nav-menu {
-                display: none;
-            }
-
-            .slide-content h1 {
-                font-size: 32px;
-            }
-
-            .hero-slider {
-                height: 400px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <!-- Top Bar -->
     <div class="top-bar">
         <div class="container">
-            <a href="#contacto">📞 Contacto</a>
+            <div class="contact-info">
+                <a href="https://wa.me/5492664004015" target="_blank">
+                    <i class="fab fa-whatsapp"></i> +54 9 2664 00-4015
+                </a>
+                <a href="mailto:institutosanmarino.direccion@gmail.com">
+                    <i class="fas fa-envelope"></i> institutosanmarino.direccion@gmail.com
+                </a>
+            </div>
+            <div class="social-links-top">
+                <a href="https://www.facebook.com/institutosanmarino.sl?locale=es_LA" target="_blank" title="Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://www.instagram.com/institutosanmarino.sl" target="_blank" title="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.tiktok.com/@institutosanmarino.sl" target="_blank" title="TikTok">
+                    <i class="fab fa-tiktok"></i>
+                </a>
+                <a href="https://open.spotify.com/show/0cFF7gZs7ijkTa3QYoYKnr" target="_blank" title="Spotify">
+                    <i class="fab fa-spotify"></i>
+                </a>
+            </div>
         </div>
     </div>
 
     <!-- Header -->
     <header>
-        <nav>
-            <div class="logo">Instituto <span>San Marino</span></div>
-            <ul class="nav-menu">
-                <li class="dropdown">
-                    <a href="#quienes">Quiénes Somos ▾</a>
-                    <div class="dropdown-content">
-                        <a href="#historia">Nuestra Historia</a>
-                        <a href="#mision">Misión y Visión</a>
-                        <a href="#valores">Valores</a>
+        <nav class="navbar">
+            <div class="container">
+                <div class="logo">
+                    <img src="images/logo.png" alt="Instituto San Marino" class="logo-img">
+                    <div class="logo-text">
+                        <span class="logo-name">Instituto San Marino</span>
+                        <span class="logo-subtitle">Barquito de Papel</span>
                     </div>
-                </li>
-                <li class="dropdown">
-                    <a href="#niveles">Niveles Educativos ▾</a>
-                    <div class="dropdown-content">
-                        <a href="#inicial">Inicial</a>
-                        <a href="#primario">Primario</a>
-                        <a href="#secundario">Secundario</a>
-                    </div>
-                </li>
-                <li><a href="#aranceles">Valores y Aranceles</a></li>
-                <li><a href="#novedades">Novedades</a></li>
-                <li><a href="#contacto">Contacto</a></li>
-            </ul>
+                </div>
+                <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li class="dropdown">
+                        <a href="#quienes-somos">Quiénes Somos <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#historia">Historia</a></li>
+                            <li><a href="#mision">Misión y Visión</a></li>
+                            <li><a href="#valores">Valores</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#niveles">Niveles <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#inicial">Inicial</a></li>
+                            <li><a href="#primario">Primario</a></li>
+                            <li><a href="#secundario">Secundario</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#aranceles">Aranceles</a></li>
+                    <li><a href="#convenios">Convenios</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </div>
         </nav>
     </header>
 
     <!-- Hero Slider -->
-    <div class="hero-slider">
-        <div class="slide slide1 active">
+    <section class="hero-slider" id="inicio">
+        <div class="slide active">
+            <div class="slide-overlay"></div>
             <div class="slide-content">
-                <h1>Instituto Privado San Marino</h1>
-                <p>Barquito de Papel - Educando con amor y compromiso</p>
+                <h1 class="animate-in">Instituto Privado San Marino</h1>
+                <p class="animate-in">Barquito de Papel - Educando con amor desde 1990</p>
+                <a href="#niveles" class="btn btn-primary animate-in">Conocer Niveles</a>
             </div>
         </div>
-        <div class="slide slide2">
+        <div class="slide">
+            <div class="slide-overlay"></div>
             <div class="slide-content">
-                <h1>Educación de Calidad</h1>
-                <p>Formamos niños y jóvenes para el futuro</p>
+                <h1 class="animate-in">Educación de Calidad</h1>
+                <p class="animate-in">Formamos ciudadanos críticos y solidarios</p>
+                <a href="#contacto" class="btn btn-primary animate-in">Contactanos</a>
             </div>
         </div>
-        <div class="slide slide3">
+        <div class="slide">
+            <div class="slide-overlay"></div>
             <div class="slide-content">
-                <h1>Valores y Excelencia</h1>
-                <p>Más de 30 años acompañando familias</p>
+                <h1 class="animate-in">Más de 30 Años de Trayectoria</h1>
+                <p class="animate-in">250 familias confían en nosotros</p>
+                <a href="#historia" class="btn btn-primary animate-in">Nuestra Historia</a>
             </div>
         </div>
-    </div>
+        <button class="slider-btn prev" id="prevSlide"><i class="fas fa-chevron-left"></i></button>
+        <button class="slider-btn next" id="nextSlide"><i class="fas fa-chevron-right"></i></button>
+        <div class="slider-dots" id="sliderDots"></div>
+    </section>
+
+    <!-- Historia -->
+    <section class="historia" id="historia">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Desde 1990</span>
+                <h2 class="section-title">Nuestra Historia</h2>
+            </div>
+            <div class="historia-content">
+                <div class="historia-text">
+                    <p>Desde su fundación en 1990, el Instituto Privado Barquito de Papel – San Marino se ha consolidado como una institución educativa de referencia en la ciudad de San Luis, comprometida con la formación integral de sus estudiantes y con el desarrollo de ciudadanos críticos, solidarios y preparados para los desafíos del mundo moderno.</p>
+                    <p>Ubicado en Colón 168, en pleno corazón de la ciudad, San Marino nació con la visión de ofrecer una educación de calidad en un entorno cercano, seguro y estimulante, donde cada alumno pudiera desplegar su potencial académico, creativo y personal.</p>
+                    <p>A lo largo de más de tres décadas, la institución ha combinado la enseñanza tradicional con proyectos innovadores y actividades que promueven la participación activa, la creatividad y el respeto por la diversidad. Con tres niveles educativos —Inicial, Primario y Secundario—, San Marino no solo se enfoca en transmitir conocimientos sólidos, sino también en cultivar valores éticos, pensamiento crítico y compromiso social.</p>
+                    <p>Hoy, el Instituto Privado San Marino sigue creciendo y reinventándose, manteniendo firme su propósito de ser un espacio donde cada niño y joven encuentra apoyo, desafíos y oportunidades para aprender, crear y formar su propio camino.</p>
+                </div>
+                <div class="historia-stats">
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-calendar-alt"></i></div>
+                        <div class="stat-number">34</div>
+                        <div class="stat-label">Años de Trayectoria</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-users"></i></div>
+                        <div class="stat-number">250</div>
+                        <div class="stat-label">Alumnos</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-graduation-cap"></i></div>
+                        <div class="stat-number">3</div>
+                        <div class="stat-label">Niveles Educativos</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Misión y Visión -->
+    <section class="mision-vision" id="mision">
+        <div class="container">
+            <div class="mv-grid">
+                <div class="mv-card">
+                    <div class="mv-icon"><i class="fas fa-bullseye"></i></div>
+                    <h3>Misión</h3>
+                    <p>Brindar una educación integral, inclusiva y de calidad, acompañando a cada estudiante en su desarrollo académico, personal y social. Buscamos formar personas críticas, responsables y solidarias, promoviendo valores como el respeto, el compromiso, la honestidad y la convivencia, en un entorno seguro y estimulante.</p>
+                </div>
+                <div class="mv-card">
+                    <div class="mv-icon"><i class="fas fa-eye"></i></div>
+                    <h3>Visión</h3>
+                    <p>Consolidarnos como una institución educativa de referencia en San Luis, reconocida por su excelencia académica, innovación pedagógica y fuerte compromiso con la formación en valores. Aspiramos a que nuestros egresados sean ciudadanos autónomos, con pensamiento crítico, preparados para los desafíos del siglo XXI.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Niveles Educativos -->
     <section class="niveles" id="niveles">
         <div class="container">
-            <h2 class="section-title">Niveles Educativos</h2>
+            <div class="section-header">
+                <span class="section-subtitle">Educación de Calidad</span>
+                <h2 class="section-title">Niveles Educativos</h2>
+            </div>
             <div class="niveles-grid">
                 <div class="nivel-card" id="inicial">
-                    <div class="nivel-icon">🎨</div>
-                    <h3>Inicial</h3>
-                    <p>Educación inicial con un enfoque lúdico y afectivo. Sala de 3, 4 y 5 años.</p>
+                    <div class="nivel-image">
+                        <img src="images/nivel-inicial.jpg" alt="Nivel Inicial">
+                        <div class="nivel-overlay">
+                            <i class="fas fa-child"></i>
+                        </div>
+                    </div>
+                    <div class="nivel-content">
+                        <h3>Nivel Inicial</h3>
+                        <p class="nivel-edad"><i class="fas fa-calendar"></i> 3 a 6 años</p>
+                        <p class="nivel-horario"><i class="fas fa-clock"></i> 8:00 a 12:15 hs</p>
+                        <p>Acompañamos a los niños en sus primeros pasos educativos, promoviendo el aprendizaje lúdico, socialización y desarrollo emocional desde edades tempranas.</p>
+                        <ul class="nivel-features">
+                            <li><i class="fas fa-check"></i> Juego educativo</li>
+                            <li><i class="fas fa-check"></i> Expresión artística</li>
+                            <li><i class="fas fa-check"></i> Psicomotricidad</li>
+                            <li><i class="fas fa-check"></i> Iniciación al inglés</li>
+                        </ul>
+                    </div>
                 </div>
+
                 <div class="nivel-card" id="primario">
-                    <div class="nivel-icon">📚</div>
-                    <h3>Primario</h3>
-                    <p>Formación integral con énfasis en valores y aprendizaje significativo.</p>
+                    <div class="nivel-image">
+                        <img src="images/nivel-primario.jpg" alt="Nivel Primario">
+                        <div class="nivel-overlay">
+                            <i class="fas fa-book-reader"></i>
+                        </div>
+                    </div>
+                    <div class="nivel-content">
+                        <h3>Nivel Primario</h3>
+                        <p class="nivel-edad"><i class="fas fa-calendar"></i> 6 a 12 años (1° a 6° grado)</p>
+                        <p class="nivel-horario"><i class="fas fa-clock"></i> 7:50 a 12:30 hs</p>
+                        <p>Fortalecemos las bases académicas fundamentales con énfasis en el desarrollo de habilidades cognitivas, pensamiento crítico y trabajo colaborativo.</p>
+                        <ul class="nivel-features">
+                            <li><i class="fas fa-check"></i> Lengua y Matemáticas</li>
+                            <li><i class="fas fa-check"></i> Ciencias Naturales y Sociales</li>
+                            <li><i class="fas fa-check"></i> Inglés reforzado</li>
+                            <li><i class="fas fa-check"></i> Educación Física y Arte</li>
+                            <li><i class="fas fa-check"></i> Tecnología educativa</li>
+                        </ul>
+                    </div>
                 </div>
+
                 <div class="nivel-card" id="secundario">
-                    <div class="nivel-icon">🎓</div>
-                    <h3>Secundario</h3>
-                    <p>Preparación académica y personal para el futuro universitario y laboral.</p>
+                    <div class="nivel-image">
+                        <img src="images/nivel-secundario.jpg" alt="Nivel Secundario">
+                        <div class="nivel-overlay">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                    </div>
+                    <div class="nivel-content">
+                        <h3>Nivel Secundario</h3>
+                        <p class="nivel-edad"><i class="fas fa-calendar"></i> 12 a 18 años</p>
+                        <p class="nivel-horario"><i class="fas fa-clock"></i> 7:50 a 13:30 hs</p>
+                        <p>Formamos estudiantes con sólida base académica y perfil crítico, capaces de enfrentar estudios superiores o integrarse en la vida laboral.</p>
+                        <ul class="nivel-features">
+                            <li><i class="fas fa-check"></i> Orientación Ciencias Naturales</li>
+                            <li><i class="fas fa-check"></i> Orientación Economía y Administración</li>
+                            <li><i class="fas fa-check"></i> Inglés avanzado</li>
+                            <li><i class="fas fa-check"></i> Programación y Robótica</li>
+                            <li><i class="fas fa-check"></i> Talleres especializados</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Pilares -->
-    <section class="pilares">
+    <!-- Valores -->
+    <section class="valores" id="valores">
         <div class="container">
-            <h2 class="section-title">Nuestros Pilares</h2>
-            <div class="pilares-grid">
-                <div class="pilar-card">
-                    <div class="pilar-icon">🏠</div>
-                    <h3>Comunidad</h3>
-                    <p>Un espacio donde cada estudiante se siente parte de una gran familia educativa.</p>
+            <div class="section-header">
+                <span class="section-subtitle">Lo que nos define</span>
+                <h2 class="section-title">Nuestros Valores</h2>
+            </div>
+            <div class="valores-grid">
+                <div class="valor-card">
+                    <div class="valor-icon"><i class="fas fa-handshake"></i></div>
+                    <h3>Respeto</h3>
+                    <p>Promovemos el respeto mutuo, la convivencia armoniosa y la valoración de las diferencias individuales.</p>
                 </div>
-                <div class="pilar-card">
-                    <div class="pilar-icon">📖</div>
-                    <h3>Educación</h3>
-                    <p>Excelencia académica con un enfoque innovador y personalizado.</p>
+                <div class="valor-card">
+                    <div class="valor-icon"><i class="fas fa-hand-holding-heart"></i></div>
+                    <h3>Responsabilidad</h3>
+                    <p>Fomentamos el compromiso personal, la autonomía y la toma de decisiones conscientes.</p>
                 </div>
-                <div class="pilar-card">
-                    <div class="pilar-icon">❤️</div>
-                    <h3>Valores</h3>
-                    <p>Formamos personas íntegras con sólidos principios éticos y morales.</p>
+                <div class="valor-card">
+                    <div class="valor-icon"><i class="fas fa-award"></i></div>
+                    <h3>Excelencia</h3>
+                    <p>Buscamos constantemente la mejora continua en todos los aspectos de la formación educativa.</p>
                 </div>
-                <div class="pilar-card">
-                    <div class="pilar-icon">🌟</div>
-                    <h3>Desarrollo</h3>
-                    <p>Potenciamos las capacidades únicas de cada estudiante.</p>
+                <div class="valor-card">
+                    <div class="valor-icon"><i class="fas fa-heart"></i></div>
+                    <h3>Solidaridad</h3>
+                    <p>Cultivamos el espíritu de colaboración, empatía y servicio hacia la comunidad.</p>
+                </div>
+                <div class="valor-card">
+                    <div class="valor-icon"><i class="fas fa-lightbulb"></i></div>
+                    <h3>Creatividad</h3>
+                    <p>Estimulamos el pensamiento crítico, la innovación y la expresión artística.</p>
+                </div>
+                <div class="valor-card">
+                    <div class="valor-icon"><i class="fas fa-book"></i></div>
+                    <h3>Aprendizaje</h3>
+                    <p>Promovemos el amor por el conocimiento y el aprendizaje continuo.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Novedades -->
-    <section class="novedades" id="novedades">
+    <!-- Actividades Extracurriculares -->
+    <section class="actividades">
         <div class="container">
-            <h2 class="section-title">Novedades</h2>
-            <div class="novedades-grid">
-                <div class="noticia-card">
-                    <div class="noticia-img">📋</div>
-                    <div class="noticia-content">
-                        <h3>Lista de Útiles Escolares 2026</h3>
-                        <p>Ya están disponibles las listas de materiales para el próximo ciclo lectivo.</p>
-                        <a href="#" class="btn-leer">Leer Más »</a>
+            <div class="section-header">
+                <span class="section-subtitle">Más que estudiar</span>
+                <h2 class="section-title">Actividades Extracurriculares</h2>
+            </div>
+            <div class="actividades-grid">
+                <div class="actividad-card">
+                    <div class="actividad-icon"><i class="fas fa-code"></i></div>
+                    <h3>Programación</h3>
+                </div>
+                <div class="actividad-card">
+                    <div class="actividad-icon"><i class="fas fa-robot"></i></div>
+                    <h3>Robótica</h3>
+                </div>
+                <div class="actividad-card">
+                    <div class="actividad-icon"><i class="fas fa-utensils"></i></div>
+                    <h3>Talleres de Cocina</h3>
+                </div>
+                <div class="actividad-card">
+                    <div class="actividad-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+                    <h3>Talleres Especiales</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Convenios -->
+    <section class="convenios" id="convenios">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Alianzas Estratégicas</span>
+                <h2 class="section-title">Nuestros Convenios</h2>
+            </div>
+            <div class="convenios-grid">
+                <div class="convenio-card">
+                    <div class="convenio-icon"><i class="fas fa-university"></i></div>
+                    <h3>Universidad del Salvador</h3>
+                    <p>Acuerdo institucional para beneficios educativos</p>
+                </div>
+                <div class="convenio-card">
+                    <div class="convenio-icon"><i class="fas fa-user-md"></i></div>
+                    <h3>APTS</h3>
+                    <p>Asociación de Profesionales y Técnicos de la Salud</p>
+                </div>
+                <div class="convenio-card">
+                    <div class="convenio-icon"><i class="fas fa-graduation-cap"></i></div>
+                    <h3>Instituto Sapiencia</h3>
+                    <p>Convenio con el instituto de Córdoba</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Aranceles -->
+    <section class="aranceles" id="aranceles">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Información de pagos</span>
+                <h2 class="section-title">Valores y Aranceles</h2>
+            </div>
+            <div class="aranceles-content">
+                <div class="arancel-info">
+                    <div class="arancel-card">
+                        <h3><i class="fas fa-dollar-sign"></i> Formas de Pago</h3>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Efectivo</li>
+                            <li><i class="fas fa-check"></i> Transferencia bancaria</li>
+                        </ul>
+                    </div>
+                    <div class="arancel-card">
+                        <h3><i class="fas fa-percentage"></i> Beneficios</h3>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Descuento por hermanos</li>
+                            <li><i class="fas fa-check"></i> Matrícula bonificada 1° año secundario</li>
+                            <li><i class="fas fa-check"></i> Matrícula bonificada 1° grado primario</li>
+                        </ul>
                     </div>
                 </div>
-                <div class="noticia-card">
-                    <div class="noticia-img">🎉</div>
-                    <div class="noticia-content">
-                        <h3>Inscripciones Abiertas</h3>
-                        <p>Comenzamos a recibir inscripciones para todos los niveles del ciclo 2026.</p>
-                        <a href="#" class="btn-leer">Leer Más »</a>
+                <div class="arancel-cta">
+                    <p>Para conocer los valores actualizados y más información sobre aranceles:</p>
+                    <a href="https://wa.me/5492664004015" class="btn btn-primary" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section class="contacto" id="contacto">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Estamos para ayudarte</span>
+                <h2 class="section-title">Contacto</h2>
+            </div>
+            <div class="contacto-grid">
+                <div class="contacto-info">
+                    <div class="info-card">
+                        <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <h3>Dirección</h3>
+                        <p>Colón 168<br>San Luis, Argentina</p>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon"><i class="fab fa-whatsapp"></i></div>
+                        <h3>WhatsApp</h3>
+                        <p><a href="https://wa.me/5492664004015" target="_blank">+54 9 2664 00-4015</a></p>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon"><i class="fas fa-envelope"></i></div>
+                        <h3>Email</h3>
+                        <p><a href="mailto:institutosanmarino.direccion@gmail.com">institutosanmarino.direccion@gmail.com</a></p>
+                    </div>
+                    <div class="social-links-contact">
+                        <a href="https://www.facebook.com/institutosanmarino.sl?locale=es_LA" target="_blank" title="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.instagram.com/institutosanmarino.sl" target="_blank" title="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.tiktok.com/@institutosanmarino.sl" target="_blank" title="TikTok">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                        <a href="https://open.spotify.com/show/0cFF7gZs7ijkTa3QYoYKnr" target="_blank" title="Spotify">
+                            <i class="fab fa-spotify"></i>
+                        </a>
                     </div>
                 </div>
-                <div class="noticia-card">
-                    <div class="noticia-img">🏆</div>
-                    <div class="noticia-content">
-                        <h3>Logros Académicos</h3>
-                        <p>Felicitamos a nuestros estudiantes por su destacado desempeño.</p>
-                        <a href="#" class="btn-leer">Leer Más »</a>
-                    </div>
+                <div class="contacto-map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3355.1234567890!2d-66.3377!3d-33.3014!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzPCsDE4JzA1LjAiUyA2NsKwMjAnMTUuNyJX!5e0!3m2!1ses!2sar!4v1234567890" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                 </div>
             </div>
         </div>
@@ -568,48 +417,40 @@
 
     <!-- Footer -->
     <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>Instituto San Marino</h3>
-                <p>Barquito de Papel</p>
-                <p>San Luis, Argentina</p>
-                <div class="social-links">
-                    <a href="#">📘</a>
-                    <a href="#">📸</a>
-                    <a href="#">🎵</a>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Instituto San Marino</h3>
+                    <p>Barquito de Papel</p>
+                    <p>Educando con amor desde 1990</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Enlaces Rápidos</h3>
+                    <ul>
+                        <li><a href="#historia">Historia</a></li>
+                        <li><a href="#niveles">Niveles</a></li>
+                        <li><a href="#aranceles">Aranceles</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contacto</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Colón 168, San Luis</p>
+                    <p><i class="fab fa-whatsapp"></i> +54 9 2664 00-4015</p>
+                    <p><i class="fas fa-envelope"></i> institutosanmarino.direccion@gmail.com</p>
                 </div>
             </div>
-            <div class="footer-section">
-                <h3>Enlaces Rápidos</h3>
-                <a href="#inicial">Nivel Inicial</a>
-                <a href="#primario">Nivel Primario</a>
-                <a href="#secundario">Nivel Secundario</a>
-                <a href="#aranceles">Valores y Aranceles</a>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Instituto Privado San Marino. Todos los derechos reservados.</p>
             </div>
-            <div class="footer-section">
-                <h3>Contacto</h3>
-                <p>📞 WhatsApp: +54 9 266 400-4015</p>
-                <p>📧 contacto@sanmarino.edu.ar</p>
-                <p>📍 Dirección del instituto</p>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>Instituto San Marino | Todos los derechos reservados © 2025</p>
         </div>
     </footer>
 
-    <script>
-        // Slider automático
-        let currentSlide = 0;
-        const slides = document.querySelectorAll('.slide');
-        
-        function nextSlide() {
-            slides[currentSlide].classList.remove('active');
-            currentSlide = (currentSlide + 1) % slides.length;
-            slides[currentSlide].classList.add('active');
-        }
-        
-        setInterval(nextSlide, 5000);
-    </script>
+    <!-- Botón WhatsApp Flotante -->
+    <a href="https://wa.me/5492664004015" class="whatsapp-float" target="_blank" title="Contactanos por WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script src="script.js"></script>
 </body>
 </html>
