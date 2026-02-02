@@ -6,7 +6,7 @@ mobileMenuToggle.addEventListener('click', () => {
     navMenu.classList.toggle('active');
 });
 
-// Hero Slider
+// Hero Slider 1
 let currentSlide = 0;
 const slides = document.querySelectorAll('.slide');
 const sliderDotsContainer = document.getElementById('sliderDots');
